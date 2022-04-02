@@ -49,3 +49,7 @@
   background-color: var(--color-primary);
   border-color: var(--color-primary);
 }
+
+.toast {
+  background-color: var(--color-gradient-1);
+}

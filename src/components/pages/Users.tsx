@@ -1,5 +1,6 @@
 import React from "react";
 import { Col } from "react-bootstrap";
+import { IToastContext, ToastContext } from "../../helpers/ContextHelper";
 import { IUser } from "../../interfaces/IUser";
 import { apiService } from "../../services/ApiService";
 import { UserService } from "../../services/UserService";
@@ -7,10 +8,11 @@ import { Card } from "../shared/Card";
 import { ListPagination } from "../shared/ListPagination";
 
 export function Users() {
+  const context = React.useContext<IToastContext>(ToastContext);
   const [list, setList] = React.useState<IUser[]>();
   const [userService] = React.useState<UserService>(
     new UserService(apiService, (e: string) => {
-      console.log(e);
+      context.setMessage(e);
     })
   );
 
