@@ -1,5 +1,6 @@
 import { IApiService } from "../interfaces/IApiService";
 import { IListPaginationService } from "../interfaces/IListPaginationService";
+import { IUser } from "../interfaces/IUser";
 
 export class UserService implements IListPaginationService {
   constructor(
@@ -12,7 +13,7 @@ export class UserService implements IListPaginationService {
   private _per_page: number = 4;
   private _total: number = 0;
   private _total_pages: number = 0;
-  private _data: any[] = [];
+  private _data: IUser[] = [];
 
   public get page(): number {
     return this._page;
@@ -26,7 +27,7 @@ export class UserService implements IListPaginationService {
   public get total_pages(): number {
     return this._total_pages;
   }
-  public get data(): any[] {
+  public get data(): IUser[] {
     return this._data;
   }
 

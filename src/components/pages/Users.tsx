@@ -16,12 +16,6 @@ export function Users() {
     })
   );
 
-  React.useEffect(() => {
-    (async () => {
-      await userService.start();
-    })();
-  }, [userService, list]);
-
   const handlePaginationList = (list: IUser[]) => {
     setList(list);
   };
