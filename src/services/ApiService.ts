@@ -18,9 +18,7 @@ export class ApiService {
   }
 
   private handleAxiosError(error: AxiosError): void {
-    throw new Error(
-      error.response ? error?.response?.data?.message : "Erro inesperado."
-    );
+    throw new Error(error?.response?.data?.message || "Erro inesperado.");
   }
 
   private async request(url: string, method: Method): Promise<any> {
