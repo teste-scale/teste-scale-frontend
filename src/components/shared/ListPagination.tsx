@@ -26,7 +26,7 @@ export function ListPagination(
     <>
       <Row className="mb-4" style={{ minHeight: props.height }}>
         {isLoading ? (
-          <div className="h-100 d-flex justify-content-center align-items-center">
+          <div className="d-flex justify-content-center align-items-center">
             <Spinner animation="border" />
           </div>
         ) : (

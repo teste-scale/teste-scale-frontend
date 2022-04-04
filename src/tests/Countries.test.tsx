@@ -1,14 +1,14 @@
 import { render, screen, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
-import { BrowserRouter } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 import { Countries } from "../components/pages/Countries";
 import { Main } from "../components/pages/Main";
 import { mockCountriesData } from "./data/MockCountriesData";
 
 describe("country page", () => {
   let mock: MockAdapter;
+
   beforeAll(() => {
     mock = new MockAdapter(axios);
   });
@@ -30,13 +30,12 @@ describe("country page", () => {
 
   test("render toast", async () => {
     render(
-      <BrowserRouter>
+      <MemoryRouter initialEntries={["/country-list"]}>
         <Main />
-      </BrowserRouter>
+      </MemoryRouter>
     );
 
     mock.onGet().networkError();
-    userEvent.click(screen.getByText("Lista de Países"));
 
     await waitFor(() => {
       expect(
